@@ -1,4 +1,15 @@
 .active {
   background-color: orange;
   color: white;
+  box-shadow: rgba(253, 155, 61, 0.2) 0px 8px 24px;
+}
+
+.day {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
