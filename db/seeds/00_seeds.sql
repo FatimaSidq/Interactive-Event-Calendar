@@ -1,11 +1,3 @@
--- admins table seeds
-INSERT INTO admins (firstName, lastName, address, phone, email, password, is_user)
-VALUES ('labber', 'labber','Lighthouse Labs','123-456-7890','l@l.com', 'labber', true),
-('Fatima', 'Siddique','Lighthouse Labs','548-490-0739','f@s.com', '123', true),
-('Hamza', 'Sohaib', 'Lighthouse Labs','111-222-3333','h@s.com','123', true),
-('Stellaris', 'Cano', 'Lighthouse Labs','647-704-8000','s@m.com','123', false),
-('Test', 'Employee', 'Address1','111-222-3333','t@t.com','123', false);
-
 -- users table seeds
 INSERT INTO users (firstName, lastName, address, phone, email, password, is_admin)
 VALUES
@@ -16,7 +8,17 @@ VALUES
 ('Test1', 'User1', '','111-222-4444','t@t.com','123', false),
 ('Test2', 'User2', '','222-444-3333','tt@tt.com','123', false);
 
--- generating the calendar table data
+
+-- admins table seeds
+INSERT INTO admins (firstName, lastName, address, phone, email, password)
+VALUES ('labber', 'labber','Lighthouse Labs','123-456-7890','l@l.com', 'labber'),
+('Fatima', 'Siddique','Lighthouse Labs','548-490-0739','f@s.com', '123'),
+('Hamza', 'Sohaib', 'Lighthouse Labs','111-222-3333','h@s.com','123'),
+('Stellaris', 'Cano', 'Lighthouse Labs','647-704-8000','s@m.com','123'),
+('Test', 'Employee', 'Address1','111-222-3333','t@t.com','123');
+
+
+-- generating the calendar table data for year 2022
 INSERT INTO calendar (day_id, year, month, day, quarter, day_of_week, day_of_year, week_of_year)
 (SELECT tstamp, 
 EXTRACT(YEAR FROM tstamp),
@@ -28,13 +30,8 @@ EXTRACT(DOY FROM tstamp),
 EXTRACT(WEEK FROM tstamp)
 FROM generate_series('2022-01-01'::timestamp, '2022-12-31', '1day'::interval) AS t(tstamp));
 
-CREATE TABLE nuggets_of_wisdom (
-  id SERIAL PRIMARY KEY NOT NULL,
-  nugget_of_wisdom TEXT,
-  quote_by VARCHAR(50) DEFAULT NULL,
-  is_active BOOLEAN DEFAULT true
-);
 
+--seeds for nuggets_of_wisdom
 INSERT INTO nuggets_of_wisdom (nugget_of_wisdom, quote_by)
 VALUES
   ('Helping someone and expecting something in return is business not kindness.', ''),
@@ -50,5 +47,3 @@ VALUES
   ('Spread love everywhere you go. Let no one ever come to you without leaving happier.','Mother Teresa'),
   ('Let my inner state be such that not only am I uninfluenced by negativity, but my every presence is a positive influence on all.','')
   ;
-
-
