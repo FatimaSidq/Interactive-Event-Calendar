@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS banners CASCADE;
+
+CREATE TABLE banners (
+  id SERIAL PRIMARY KEY NOT NULL,
+  name VARCHAR(50) NOT NULL,
+  image_location VARCHAR(150) NOT NULL,
+  season_id INTEGER REFERENCES seasons(id) ON DELETE CASCADE,
+  is_active BOOLEAN DEFAULT true
+);
