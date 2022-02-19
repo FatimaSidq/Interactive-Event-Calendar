@@ -13,6 +13,7 @@ function App() {
         days={state.days}
         month={state.month}
         year={state.year}
+        state={state}
         setState={setState}
       ></Calendar>
       <Todo temperature={state.temperature} town={state.town} todo={state.todo} />

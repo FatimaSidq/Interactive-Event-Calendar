@@ -57,8 +57,8 @@ module.exports = {
         { day: 2 },
       ],
     },
-    month: "January",
-    year: "2022",
+    month: 0,
+    year: 2022,
     temperature: 19,
     town: "Ningbo",
     todo: [
@@ -82,5 +82,5 @@ module.exports = {
         time: "07:00",
         item: "Get out of bed"
       }
-    ]
+    ],
   }
