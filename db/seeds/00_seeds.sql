@@ -44,7 +44,7 @@ VALUES
    'public/images/5k-yosemite-national-park-great-view-4k.jpeg',   '',''
   ),
   (
-   'public/images/6ksun.jpeg', '',''
+   'public/images/beautiful-morning-sunrise-4k-gx.jpeg', '',''
   ),
   (
    'public/images/aurora_southern_lights_wallpaper_hd_4k_by_sahibdm_ddbw9xm-pre.jpeg', '', ''
