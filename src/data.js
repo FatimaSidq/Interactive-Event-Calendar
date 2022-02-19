@@ -1,86 +1,31 @@
+const now = new Date();
+
 module.exports = {
-    days: {
-      sunday: [
-        { day: 26, active: true },
-        { day: 5 },
-        { day: 12 },
-        { day: 19 },
-        { day: 26 },
-        { day: 2 },
-      ],
-      monday: [
-        { day: 26 },
-        { day: 5 },
-        { day: 12 },
-        { day: 19 },
-        { day: 26 },
-        { day: 2 },
-      ],
-      tuesday: [
-        { day: 26 },
-        { day: 5 },
-        { day: 12 },
-        { day: 19 },
-        { day: 26 },
-        { day: 2 },
-      ],
-      wednesday: [
-        { day: 26 },
-        { day: 5 },
-        { day: 12 },
-        { day: 19 },
-        { day: 26 },
-        { day: 2 },
-      ],
-      thursday: [
-        { day: 26 },
-        { day: 5 },
-        { day: 12 },
-        { day: 19 },
-        { day: 26 },
-        { day: 2 },
-      ],
-      friday: [
-        { day: 26 },
-        { day: 5 },
-        { day: 12 },
-        { day: 19 },
-        { day: 26 },
-        { day: 2 },
-      ],
-      saturday: [
-        { day: 26 },
-        { day: 5 },
-        { day: 12 },
-        { day: 19 },
-        { day: 26 },
-        { day: 2 },
-      ],
-    },
-    month: 0,
-    year: 2022,
+    day: now.getDate(),
+    month: now.getMonth(),
+    year: now.getFullYear(),
     temperature: 19,
     town: "Ningbo",
-    todo: [
-      {
-        complete: true,
-        time: "07:00",
-        item: "Get out of bed"
-      },
-      {
-        complete: true,
-        time: "07:00",
-        item: "Get out of bed"
-      },
-      {
-        complete: false,
-        time: "07:00",
-        item: "Get out of bed"
-      },
-      {
-        complete: false,
-        time: "07:00",
-        item: "Get out of bed"
-      }
-    ],
+    // todo: [
+    //   {
+    //     complete: true,
+    //     time: "07:00",
+    //     item: "Get d of bed"
+    //   },
+    //   {
+    //     complete: true,
+    //     time: "07:00",
+    //     item: "Get asd of bed"
+    //   },
+    //   {
+    //     complete: false,
+    //     time: "07:00",
+    //     item: "Get out of a"
+    //   },
+    //   {
+    //     complete: false,
+    //     time: "07:00",
+    //     item: "Get x of bed"
+    //   }
+    // ],
   }

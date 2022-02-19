@@ -10,7 +10,7 @@ export default function Todo(props) {
         <p>{props.town}</p>
       </div>
       <div className="todo-list">
-        {props.todo.map(item => <TodoItem complete={item.complete} time={item.time} item={item.item}/>)}
+        {/* {props.todo.map(item => <TodoItem complete={item.complete} time={item.time} item={item.item} key={props.todo.indexOf(item)}/>)} */}
       </div>
     </div>
   );

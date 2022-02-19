@@ -2,61 +2,124 @@ import Day from "./Day";
 import "./DayList.css";
 
 export default function DaysList(props) {
+  let days = [[], [], [], [], [], [], []];
+
+  const daysInMonth = new Date(props.year, props.month + 1, 0).getDate();
+  const firstDayOfMonth = new Date(props.year, props.month, 1).getDay();
+  const now = new Date();
+
+  for (let i = 0; i < days.length; i += 1) {
+    for (let j = 0; j < daysInMonth; j += 7) {
+      if (j + i + 1 <= daysInMonth) {
+        days[i].push(j + i + 1);
+      }
+    }
+  }
+
+  days = days
+    .slice(days.length - firstDayOfMonth)
+    .concat(days.slice(0, days.length - firstDayOfMonth));
+
+  for (let i = 0; i < days.length; i += 1) {
+    if (days[i].length < 5) {
+      if (i < firstDayOfMonth) {
+        days[i].unshift(" ");
+      } else {
+        days[i].push(" ");
+      }
+    }
+  }
+
   return (
     <div className="day_list">
       <div>
         <h5 className="orange-text">SUN</h5>
         <div>
-          {props.days.sunday.map((day) => (
-            <Day day={day.day} active={day.active}></Day>
+          {days[0].map((day) => (
+            <Day
+              key={day}
+              day={day}
+              active={day === props.day}
+              today={day === now.getDate() && props.month == now.getMonth()}
+            ></Day>
           ))}
         </div>
       </div>
       <div>
         <h5>MON</h5>
         <div>
-          {props.days.monday.map((day) => (
-            <Day day={day.day} active={day.active}></Day>
+          {days[1].map((day) => (
+            <Day
+              key={day}
+              day={day}
+              active={day === props.day}
+              today={day === now.getDate() && props.month == now.getMonth()}
+            ></Day>
           ))}
         </div>
       </div>
       <div>
         <h5>TUE</h5>
         <div>
-          {props.days.tuesday.map((day) => (
-            <Day day={day.day} active={day.active}></Day>
+          {days[2].map((day) => (
+            <Day
+              key={day}
+              day={day}
+              active={day === props.day}
+              today={day === now.getDate() && props.month == now.getMonth()}
+            ></Day>
           ))}
         </div>
       </div>
       <div>
         <h5>WED</h5>
         <div>
-          {props.days.wednesday.map((day) => (
-            <Day day={day.day} active={day.active}></Day>
+          {days[3].map((day) => (
+            <Day
+              key={day}
+              day={day}
+              active={day === props.day}
+              today={day === now.getDate() && props.month == now.getMonth()}
+            ></Day>
           ))}
         </div>
       </div>
       <div>
         <h5>THU</h5>
         <div>
-          {props.days.thursday.map((day) => (
-            <Day day={day.day} active={day.active}></Day>
+          {days[4].map((day) => (
+            <Day
+              key={day}
+              day={day}
+              active={day === props.day}
+              today={day === now.getDate() && props.month == now.getMonth()}
+            ></Day>
           ))}
         </div>
       </div>
       <div>
         <h5>FRI</h5>
         <div>
-          {props.days.friday.map((day) => (
-            <Day day={day.day} active={day.active}></Day>
+          {days[5].map((day) => (
+            <Day
+              key={day}
+              day={day}
+              active={day === props.day}
+              today={day === now.getDate() && props.month == now.getMonth()}
+            ></Day>
           ))}
         </div>
       </div>
       <div>
         <h5 className="orange-text">SAT</h5>
         <div>
-          {props.days.saturday.map((day) => (
-            <Day day={day.day} active={day.active}></Day>
+          {days[6].map((day) => (
+            <Day
+              key={day}
+              day={day}
+              active={day === props.day}
+              today={day === now.getDate() && props.month == now.getMonth()}
+            ></Day>
           ))}
         </div>
       </div>

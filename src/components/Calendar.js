@@ -6,20 +6,32 @@ export default function Calendar(props) {
   const transition = (step) => {
     if (step === "back") {
       if (props.month === 0) {
-        props.setState({ ...props.state, month: 11, year: props.year - 1 });
+        props.setState({
+          ...props.state,
+          month: 11,
+          year: props.year - 1,
+          day: 1,
+        });
       } else {
         props.setState({
           ...props.state,
           month: props.month - 1,
+          day: 1,
         });
       }
-    } else {
+    } else if (step === "forward") {
       if (props.month === 11) {
-        props.setState({ ...props.state, month: 0, year: props.year + 1 });
+        props.setState({
+          ...props.state,
+          month: 0,
+          year: props.year + 1,
+          day: 1,
+        });
       } else {
         props.setState({
           ...props.state,
           month: props.month + 1,
+          day: 1,
         });
       }
     }
@@ -28,7 +40,12 @@ export default function Calendar(props) {
   return (
     <div className="calendar">
       <Month month={props.month} year={props.year} setMonth={transition} />
-      <DayList days={props.days} />
+      <DayList
+        month={props.month}
+        year={props.year}
+        days={props.days}
+        day={props.day}
+      />
     </div>
   );
 }
