@@ -6,8 +6,7 @@ DROP TABLE IF EXISTS events CASCADE;
 -- DROP TABLE IF EXISTS event_categories CASCADE;
 DROP TABLE IF EXISTS todos CASCADE;
 DROP TABLE IF EXISTS invitees CASCADE;
-
-DROP TABLE IF EXISTS seasons CASCADE;
+-- DROP TABLE IF EXISTS seasons CASCADE;
 DROP TABLE IF EXISTS banners CASCADE;
 DROP TABLE IF EXISTS nuggets_of_wisdom CASCADE;
 
@@ -36,7 +35,6 @@ CREATE TABLE admins (
 );
 
 
-
 -- /////////   CALENDAR Table Definition   /////// 
 --------------------------------------------------
 -- day id       : date primary key 
@@ -62,7 +60,6 @@ CREATE TABLE calendar (
   CONSTRAINT con_week_of_year CHECK (week_of_year >= 1 AND week_of_year <= 53)
 );
 
-
 CREATE TABLE events (
   id SERIAL PRIMARY KEY NOT NULL,
   title varchar(50) NOT NULL, 
@@ -72,17 +69,20 @@ CREATE TABLE events (
   created_by INTEGER REFERENCES users(id) ON DELETE CASCADE,
   start_date TIMESTAMP NOT NULL REFERENCES calendar(day_id) ON DELETE CASCADE,
   end_date TIMESTAMP NOT NULL,
-  is_recurring BOOLEAN DEFAULT false
+  is_recurring BOOLEAN DEFAULT false,
+  send_reminder_on TIMESTAMP DEFAULT NULL  
+  -- both to event owner and invitees
 );
 
 CREATE TABLE todos (
   id SERIAL PRIMARY KEY NOT NULL,
   name varchar(50) NOT NULL, 
+  -- users are able to attach documents to todos 
   doc BYTEA, 
   notes TEXT,
   created_on TIMESTAMP NOT NULL DEFAULT Now(),
-  event_id INTEGER REFERENCES events(id) ON DELETE CASCADE,
-  is_done BOOLEAN DEFAULT false
+  is_complete BOOLEAN DEFAULT false,
+  event_id INTEGER REFERENCES events(id) ON DELETE CASCADE
 );
 
 CREATE TABLE invitees (
@@ -92,27 +92,25 @@ CREATE TABLE invitees (
   address VARCHAR(255) NULL,
   phone VARCHAR(15) NULL,
   email VARCHAR(100) UNIQUE NOT NULL,
+  has_attended BOOLEAN DEFAULT false,
   event_id INTEGER REFERENCES events(id) ON DELETE CASCADE
-);
-
-CREATE TABLE seasons (
-  id SERIAL PRIMARY KEY NOT NULL,
-  name VARCHAR(100) UNIQUE NOT NULL,
-  months INTEGER
 );
 
 CREATE TABLE banners (
   id SERIAL PRIMARY KEY NOT NULL,
-  name VARCHAR(50) NOT NULL,
-  image_location VARCHAR(150) NOT NULL,
-  season_id INTEGER REFERENCES seasons(id) ON DELETE CASCADE,
+  location_full_image VARCHAR(100) NOT NULL,
+  location_for_nuggets_only VARCHAR(100) NULL,
+  text_color VARCHAR(100) NULL,
   is_active BOOLEAN DEFAULT true
 );
 
 CREATE TABLE nuggets_of_wisdom (
   id SERIAL PRIMARY KEY NOT NULL,
-  nugget_of_wisdom TEXT,
+  nugget_of_wisdom VARCHAR(255),
   quote_by VARCHAR(50) DEFAULT NULL,
+  more_info TEXT NULL,
+  banner_id INTEGER NOT NULL REFERENCES banners(id) ON DELETE CASCADE, 
   added_on TIMESTAMP NOT NULL DEFAULT Now(),
-  is_active BOOLEAN DEFAULT true
+  is_active BOOLEAN DEFAULT true,
+  calendar_id DATE REFERENCES calendar(day_id) ON DELETE CASCADE
 );

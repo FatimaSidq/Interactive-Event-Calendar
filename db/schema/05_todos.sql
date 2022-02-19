@@ -6,6 +6,7 @@ CREATE TABLE todos (
   doc BYTEA, 
   notes TEXT,
   created_on TIMESTAMP NOT NULL DEFAULT Now(),
-  event_id INTEGER REFERENCES events(id) ON DELETE CASCADE,
-  is_done BOOLEAN DEFAULT false
+  is_complete BOOLEAN DEFAULT false,
+  event_id INTEGER REFERENCES events(id) ON DELETE CASCADE
 );
+

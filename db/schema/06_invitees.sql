@@ -7,5 +7,6 @@ CREATE TABLE invitees (
   address VARCHAR(255) NULL,
   phone VARCHAR(15) NULL,
   email VARCHAR(100) UNIQUE NOT NULL,
+  has_attended BOOLEAN DEFAULT false,
   event_id INTEGER REFERENCES events(id) ON DELETE CASCADE
 );
