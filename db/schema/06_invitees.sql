@@ -1,0 +1,12 @@
+DROP TABLE IF EXISTS invitees CASCADE;
+
+CREATE TABLE invitees (
+  id SERIAL PRIMARY KEY NOT NULL,
+  firstName VARCHAR(150) NOT NULL,
+  lastName VARCHAR(150) NULL,
+  address VARCHAR(255) NULL,
+  phone VARCHAR(15) NULL,
+  email VARCHAR(100) UNIQUE NOT NULL,
+  has_attended BOOLEAN DEFAULT false,
+  event_id INTEGER REFERENCES events(id) ON DELETE CASCADE
+);
