@@ -29,112 +29,103 @@ EXTRACT(DOY FROM tstamp),
 EXTRACT(WEEK FROM tstamp)
 FROM generate_series('2022-01-01'::timestamp, '2022-12-31', '1day'::interval) AS t(tstamp));
 
-DROP TABLE IF EXISTS banners CASCADE;
-
-CREATE TABLE banners (
-  id SERIAL PRIMARY KEY NOT NULL,
-  location_full_image VARCHAR(100) NOT NULL,
-  location_for_nuggets_only VARCHAR(100) NULL,
-  text_color VARCHAR(100) NULL,
-  is_active BOOLEAN DEFAULT true
-);
 
 -- banners table seeds
 INSERT INTO banners (location_full_image, location_for_nuggets_only, text_color)
 VALUES
-  (
-   'public/images/4k-ultra-hd-nature-wallpapers-grand.jpeg', '',''
-  ),
-  (
-   'public/images/4ksun.jpeg', '', ''
-  ),
-  (
-   'public/images/5k-yosemite-national-park-great-view-4k.jpeg',   '',''
-  ),
-  (
-   'public/images/beautiful-morning-sunrise-4k-gx.jpeg', '',''
-  ),
-  (
-   'public/images/aurora_southern_lights_wallpaper_hd_4k_by_sahibdm_ddbw9xm-pre.jpeg', '', ''
-  ),
-  (
-   'public/images/aurora-borealis-northern-lights-uhd-4k-wallpaper.jpeg',   '',''
-  ),
-  (
-   'public/images/aurora-borealis-purple.jpeg', '',''
-  ),
-  (
-   'public/images/aurora-borealis.jpeg', '', ''
-  ),
-  (
-   'public/images/aurora2.jpeg',   '',''
-  ),
-  (
-   'public/images/autumn-morning-fog-yosemite-5k.jpeg', '',''
-  ),
-  (
-   'public/images/beautiful-beach-sunset-4k-5r.jpeg', '', ''
-  ),
-  (
-   'public/images/beautiful-flowers.jpeg', '', ''
-  ),
-  (
-   'public/images/beautiful-nature-mountains-fog-trees-ze.jpeg', '', ''
-  ),
-  (
-   'public/images/beautiful-sunrise-view-5k.jpeg', '', ''
-  ),
-  (
-   'public/images/branch-painting-spring-cherry_blossom-7680x4320.jpeg', '', ''
-  ),
-  (
-   'public/images/daisy.jpeg', '', ''
-  ),
-  (
-   'public/images/fall-4k-ultra-hd-wallpaper.jpeg', '', ''
-  ),
-  (
-   'public/images/falls.jpeg', '', ''
-  ),
-  (
-   'public/images/Field-of-Flowers-hd-wallpapers.jpeg', '', ''
-  ),
-  (
-   'public/images/flowers5.jpeg', '', ''
-  ),
-  (
-   'public/images/galveston-island-sunrise-1.jpeg', '', ''
-  ),
-  (
-   'public/images/golden-sky-on-a-summer-day-3840x2160.jpeg', '', ''
-  ),
-  (
-   'public/images/images-landscape-4k.jpeg', '', ''
-  ),
-  (
-   'public/images/laguna-beach-seascape-long-exposure-5k.jpeg', '', ''
-  ),
-  (
-   'public/images/mountains-8k-clouds-sunset-nature.jpeg', '', ''
-  ),
-  (
-   'public/images/mountains-fog.jpeg', '', ''
-  ),
-  (
-   'public/images/mountains-landscape-nw.jpeg', '', ''
-  ),
-  (
-   'public/images/nature-good-morning-clipart-ppt.jpeg', '', ''
-  ),
  (
-   'public/images/night-fury-wide.jpeg', '', ''
-  ),
+'public/images/4k-ultra-hd-nature-wallpapers-grand.jpeg', '',''
+ ),
  (
-   'public/images/northern-lights-aurora-borealis-over-forest-uhd-4k.jpeg', '', ''
-  ),
-   (
-   'public/images/northern-lights-green.jpeg', '', ''
-  );
+'public/images/4ksun.jpeg', '', ''
+ ),
+ (
+'public/images/5k-yosemite-national-park-great-view-4k.jpeg','',''
+ ),
+ (
+'public/images/beautiful-morning-sunrise-4k-gx.jpeg', '',''
+ ),
+ (
+'public/images/aurora_southern_lights_wallpaper_hd_4k_by_sahibdm_ddbw9xm-pre.jpeg', '', ''
+ ),
+ (
+'public/images/aurora-borealis-northern-lights-uhd-4k-wallpaper.jpeg','',''
+ ),
+ (
+'public/images/aurora-borealis-purple.jpeg', '',''
+ ),
+ (
+'public/images/aurora-borealis.jpeg', '', ''
+ ),
+ (
+'public/images/aurora2.jpeg','',''
+ ),
+ (
+'public/images/autumn-morning-fog-yosemite-5k.jpeg', '',''
+ ),
+ (
+'public/images/beautiful-beach-sunset-4k-5r.jpeg', '', ''
+ ),
+ (
+'public/images/beautiful-flowers.jpeg', '', ''
+ ),
+ (
+'public/images/beautiful-nature-mountains-fog-trees-ze.jpeg', '', ''
+ ),
+ (
+'public/images/beautiful-sunrise-view-5k.jpeg', '', ''
+ ),
+ (
+'public/images/branch-painting-spring-cherry_blossom-7680x4320.jpeg', '', ''
+ ),
+ (
+'public/images/daisy.jpeg', '', ''
+ ),
+ (
+'public/images/fall-4k-ultra-hd-wallpaper.jpeg', '', ''
+ ),
+ (
+'public/images/falls.jpeg', '', ''
+ ),
+ (
+'public/images/Field-of-Flowers-hd-wallpapers.jpeg', '', ''
+ ),
+ (
+'public/images/flowers5.jpeg', '', ''
+ ),
+ (
+'public/images/galveston-island-sunrise-1.jpeg', '', ''
+ ),
+ (
+'public/images/golden-sky-on-a-summer-day-3840x2160.jpeg', '', ''
+ ),
+ (
+'public/images/images-landscape-4k.jpeg', '', ''
+ ),
+ (
+'public/images/laguna-beach-seascape-long-exposure-5k.jpeg', '', ''
+ ),
+ (
+'public/images/mountains-8k-clouds-sunset-nature.jpeg', '', ''
+ ),
+ (
+'public/images/mountains-fog.jpeg', '', ''
+ ),
+ (
+'public/images/mountains-landscape-nw.jpeg', '', ''
+ ),
+ (
+'public/images/nature-good-morning-clipart-ppt.jpeg', '', ''
+ ),
+ (
+'public/images/night-fury-wide.jpeg', '', ''
+ ),
+ (
+'public/images/northern-lights-aurora-borealis-over-forest-uhd-4k.jpeg', '', ''
+ ),
+(
+'public/images/northern-lights-green.jpeg', '', ''
+ );
 
 
 --seeds for nuggets_of_wisdom
@@ -145,7 +136,7 @@ VALUES
 (E'Your time is limited, so do not waste it living someone else life. Don\'t be trapped by dogma, which is living with the results of other people\'s thinking.','Steve Jobs', 'time', '', 3),
 ('Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning.', 'Albert Einstein', 'hope', '', 4),
 (E'Many of life\'s failures are people who did not realize how close they were to success when they gave up ', 'Thomas A. Edison', 'success', '', 5),
-('Success is not final; failure is not fatal: It is the courage to continue that counts. ', 'Winston S. Churchill', 'success', '', 6),
+('Success is not final; failure is not fatal: It is the courage to continue that counts. ', 'Winston S. Churchill', 'courage', '', 6),
 (E'Hope is not an emotion; it\'s a way of thinking or a cognitive process.', 'Brene Brown', 'hope', '', 7),
 ('Most of the important things in the world have been accomplished by people who have kept on trying when there seemed to be no hope at all.', 'Dale Carnegie', 'hope', '', 8),
 ('Only a powerful soul can offer love and can afford to be humble. If we are weak, we become selfish. If we are empty, we take; but if we are full, we automatically give to all. That is our nature ', 'Dadi Prakashmani', 'love', '', 9),
@@ -195,13 +186,9 @@ VALUES
 ('Spread love everywhere you go. Let no one ever come to you without leaving happier ', 'Mother Teresa', 'love', '', 22),
 ('The greatest glory in living lies not in never falling, but in rising every time we fall. ', 'Nelson Mandela', 'life', '', 23),
 ('What seems to us as bitter trials are often blessings in disguise.', 'Oscar Wilde', 'hope', '', 24),
-('When we love, we always strive to become better than we are. When we strive to become better than we are, everything around us becomes better too.', 'Paulo Coelho', 'hope', '', 25),
+('When we love, we always strive to become better than we are. When we strive to become better than we are, everything around us becomes better too.', 'Paulo Coelho', 'love', '', 25),
 ('When you have lost hope, you have lost everything. And when you think all is lost, when all is dire and bleak, there is always hope.', 'Pittacus Lore', 'hope', '', 26),
 ('Hope is the pillar that holds up the world. Hope is the dream of a waking man.', 'Pliny the Elder', 'hope', '', 27),
-('This new day is too dear, with its hopes and invitations, to waste a moment on the yesterdays.', 'Ralph Waldo Emerson', 'hope', '', 28),
-('Hope and patience are two sovereign remedies for all, the surest reposals, the softest cushions to lean on in adversity.', 'Robert Burton', 'hope', '', 29),
-('Never lose hope. Storms make people stronger and never last forever.', 'Roy T. Bennett', 'hope', '', 30),
-('Hope is itself a species of happiness, and, perhaps, the chief happiness which this world affords.', 'Samuel Johnson', 'hope', '', 31),
 ('Hope is the companion of power, and mother of success; for who so hopes strongly has within him the gift of miracles.', 'Samuel Smiles', 'hope', '', 1),
 ('Hope teaches endurance and an eager anticipation of that which will become reality.', 'Simon J. Kistemaker', 'hope', '', 2),
 ('The past is a source of knowledge, and the future is a source of hope. Love of the past implies faith in the future.', 'Stephen Ambrose', 'hope', '', 3),
@@ -209,5 +196,18 @@ VALUES
 ('Our fear must save our hope from swelling into presumption, and our hope must save our fear from sinking into despair.', 'Matthew Henry', 'hope', '', 5),
 (E'Children are the world\'s most valuable resource and its best hope for the future.', 'John F. Kennedy', 'hope', '', 6),
 (E'There is some good in this world, and it\'s worth fighting for.', 'J.R.R. Tolkien', 'hope', '', 7),
-('Love recognizes no barriers. It jumps hurdles, leaps fences, penetrates walls to arrive at its destination full of hope.', 'Maya Angelou', 'hope', '', 8)
+('Love recognizes no barriers. It jumps hurdles, leaps fences, penetrates walls to arrive at its destination full of hope.', 'Maya Angelou', 'hope', '', 8),
+('This new day is too dear, with its hopes and invitations, to waste a moment on the yesterdays.', 'Ralph Waldo Emerson', 'hope', '', 9),
+('Hope and patience are two sovereign remedies for all, the surest reposals, the softest cushions to lean on in adversity.', 'Robert Burton', 'hope', '', 10),
+('Never lose hope. Storms make people stronger and never last forever.', 'Roy T. Bennett', 'hope', '', 11),
+('Hope is itself a species of happiness, and, perhaps, the chief happiness which this world affords.', 'Samuel Johnson', 'hope', '', 12),
+('You can give without loving, but you cannot love without giving.', 'Amy Carmichael', 'love','', 13),
+('Love and compassion are necessities, not luxuries. Without them humanity cannot survive.', 'Dalai Lama', 'love','', 14),
+('The best and most beautiful things in this world cannot be seen or even heard, but must be felt with the heart.', 'Helen Keller', 'love','', 15),
+('The loneliest place in the world is the human heart when love is absent.', 'Jeremiah Say', 'love','', 16),
+('We are shaped and fashioned by what we love.', 'Johann Wolfgang von Goethe', 'love','', 17),
+('Being deeply loved by someone gives you strength, while loving someone deeply gives you courage.', 'Lao Tzu', 'love','', 18),
+('Duty makes us do things well, but love makes us do them beautifully.', 'Phillips Brooks', 'love','', 19),
+('The greatest happiness of life is the conviction that we are loved; loved for ourselves, or rather, loved in spite of ourselves.', 'Victor Hugo', 'love','' , 20),
+('Alone we can do so little; together we can do so much.', 'Helen Keller', 'collaboration','', 21)
 ;
