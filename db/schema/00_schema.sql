@@ -6,7 +6,6 @@ DROP TABLE IF EXISTS events CASCADE;
 -- DROP TABLE IF EXISTS event_categories CASCADE;
 DROP TABLE IF EXISTS todos CASCADE;
 DROP TABLE IF EXISTS invitees CASCADE;
--- DROP TABLE IF EXISTS seasons CASCADE;
 DROP TABLE IF EXISTS banners CASCADE;
 DROP TABLE IF EXISTS nuggets_of_wisdom CASCADE;
 
@@ -60,6 +59,7 @@ CREATE TABLE calendar (
   CONSTRAINT con_week_of_year CHECK (week_of_year >= 1 AND week_of_year <= 53)
 );
 
+
 CREATE TABLE events (
   id SERIAL PRIMARY KEY NOT NULL,
   title varchar(50) NOT NULL, 
@@ -67,12 +67,15 @@ CREATE TABLE events (
   url varchar(150)  NULL, 
   created_on TIMESTAMP NOT NULL DEFAULT Now(),
   created_by INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  start_date TIMESTAMP NOT NULL REFERENCES calendar(day_id) ON DELETE CASCADE,
-  end_date TIMESTAMP NOT NULL,
+  start_date DATE NOT NULL REFERENCES calendar(day_id) ON DELETE CASCADE,
+  start_time TIME NOT NULL,
+  end_date DATE NOT NULL,
+  end_time TIME NOT NULL,
   is_recurring BOOLEAN DEFAULT false,
-  send_reminder_on TIMESTAMP DEFAULT NULL  
-  -- both to event owner and invitees
+  send_reminder_on TIMESTAMP NULL  
+  -- send reminder both to event owner and invitees
 );
+
 
 CREATE TABLE todos (
   id SERIAL PRIMARY KEY NOT NULL,

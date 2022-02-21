@@ -7,9 +7,11 @@ CREATE TABLE events (
   url varchar(150)  NULL, 
   created_on TIMESTAMP NOT NULL DEFAULT Now(),
   created_by INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  start_date TIMESTAMP NOT NULL REFERENCES calendar(day_id) ON DELETE CASCADE,
-  end_date TIMESTAMP NOT NULL,
+  start_date DATE NOT NULL REFERENCES calendar(day_id) ON DELETE CASCADE,
+  start_time TIME NOT NULL,
+  end_date DATE NOT NULL,
+  end_time TIME NOT NULL,
   is_recurring BOOLEAN DEFAULT false,
-  send_reminder_on TIMESTAMP DEFAULT NULL  
-  -- both to event owner and invitees
+  send_reminder_on TIMESTAMP NULL  
+  -- send reminder both to event owner and invitees
 );
