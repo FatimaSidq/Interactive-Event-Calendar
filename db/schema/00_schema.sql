@@ -88,6 +88,8 @@ CREATE TABLE todos (
   event_id INTEGER REFERENCES events(id) ON DELETE CASCADE
 );
 
+DROP TABLE IF EXISTS invitees CASCADE;
+
 CREATE TABLE invitees (
   id SERIAL PRIMARY KEY NOT NULL,
   firstName VARCHAR(150) NOT NULL,
@@ -95,7 +97,10 @@ CREATE TABLE invitees (
   address VARCHAR(255) NULL,
   phone VARCHAR(15) NULL,
   email VARCHAR(100) UNIQUE NOT NULL,
+  invited_on TIMESTAMP NOT NULL DEFAULT Now(),
+  notified_on TIMESTAMP NULL,
   has_attended BOOLEAN DEFAULT false,
+  send_thankYou_on TIMESTAMP NULL,
   event_id INTEGER REFERENCES events(id) ON DELETE CASCADE
 );
 
