@@ -1,0 +1,8 @@
+.day_list {
+    display: flex;
+    text-align: center;
+}
+
+.orange-text {
+    color: orange;
+}

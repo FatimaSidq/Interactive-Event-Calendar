@@ -1,0 +1,25 @@
+.todo-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.check {
+    border-radius: 1px;
+    border: 2px solid white;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-item-info {
+    line-height: 5px;
+    font-size: 11px;
+}
+
+.complete {
+    opacity: 0.5;
+}

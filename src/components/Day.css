@@ -1,0 +1,31 @@
+.active {
+  background-color: orange !important;
+  color: white;
+  box-shadow: rgba(253, 155, 61, 0.2) 0px 8px 24px;
+}
+
+.spacer {
+  padding: 20px;
+}
+
+.day {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.active:hover {
+  background-color: orange !important;
+}
+
+.day:hover {
+  background-color: rgba(255, 165, 0, 0.2);
+}
+
+.today {
+  background-color: rgba(255, 165, 0, 0.1);
+}
