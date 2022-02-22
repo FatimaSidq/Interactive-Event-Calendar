@@ -4,6 +4,10 @@
   box-shadow: rgba(253, 155, 61, 0.2) 0px 8px 24px;
 }
 
+.spacer {
+  padding: 20px;
+}
+
 .day {
   width: 40px;
   height: 40px;

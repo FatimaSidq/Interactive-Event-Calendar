@@ -20,8 +20,10 @@ export default function DaysList(props) {
     .slice(days.length - firstDayOfMonth)
     .concat(days.slice(0, days.length - firstDayOfMonth));
 
+  const daysInWeek = Math.max(...(days.map(el => el.length))) + 1;
+
   for (let i = 0; i < days.length; i += 1) {
-    if (days[i].length < 5) {
+    if (days[i].length < daysInWeek) {
       if (i < firstDayOfMonth) {
         days[i].unshift(" ");
       } else {
@@ -40,7 +42,7 @@ export default function DaysList(props) {
               key={day}
               day={day}
               active={day === props.day}
-              today={day === now.getDate() && props.month == now.getMonth()}
+              today={day === now.getDate() && props.month === now.getMonth()}
             ></Day>
           ))}
         </div>
@@ -53,7 +55,7 @@ export default function DaysList(props) {
               key={day}
               day={day}
               active={day === props.day}
-              today={day === now.getDate() && props.month == now.getMonth()}
+              today={day === now.getDate() && props.month === now.getMonth()}
             ></Day>
           ))}
         </div>
@@ -66,7 +68,7 @@ export default function DaysList(props) {
               key={day}
               day={day}
               active={day === props.day}
-              today={day === now.getDate() && props.month == now.getMonth()}
+              today={day === now.getDate() && props.month === now.getMonth()}
             ></Day>
           ))}
         </div>
@@ -79,7 +81,7 @@ export default function DaysList(props) {
               key={day}
               day={day}
               active={day === props.day}
-              today={day === now.getDate() && props.month == now.getMonth()}
+              today={day === now.getDate() && props.month === now.getMonth()}
             ></Day>
           ))}
         </div>
@@ -92,7 +94,7 @@ export default function DaysList(props) {
               key={day}
               day={day}
               active={day === props.day}
-              today={day === now.getDate() && props.month == now.getMonth()}
+              today={day === now.getDate() && props.month === now.getMonth()}
             ></Day>
           ))}
         </div>
@@ -105,7 +107,7 @@ export default function DaysList(props) {
               key={day}
               day={day}
               active={day === props.day}
-              today={day === now.getDate() && props.month == now.getMonth()}
+              today={day === now.getDate() && props.month === now.getMonth()}
             ></Day>
           ))}
         </div>
@@ -118,7 +120,7 @@ export default function DaysList(props) {
               key={day}
               day={day}
               active={day === props.day}
-              today={day === now.getDate() && props.month == now.getMonth()}
+              today={day === now.getDate() && props.month === now.getMonth()}
             ></Day>
           ))}
         </div>
