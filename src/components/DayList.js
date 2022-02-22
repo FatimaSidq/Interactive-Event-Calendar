@@ -2,6 +2,13 @@ import Day from "./Day";
 import "./DayList.css";
 
 export default function DaysList(props) {
+  const setDay = (day) => {
+    props.setState({
+      ...props.state,
+      day
+    })
+  }
+  
   let days = [[], [], [], [], [], [], []];
 
   const daysInMonth = new Date(props.year, props.month + 1, 0).getDate();
@@ -42,7 +49,8 @@ export default function DaysList(props) {
               key={day}
               day={day}
               active={day === props.day}
-              today={day === now.getDate() && props.month === now.getMonth()}
+              today={day === now.getDate() && props.month === now.getMonth() && props.year === now.getFullYear()}
+              setDay={setDay}
             ></Day>
           ))}
         </div>
@@ -55,7 +63,8 @@ export default function DaysList(props) {
               key={day}
               day={day}
               active={day === props.day}
-              today={day === now.getDate() && props.month === now.getMonth()}
+              today={day === now.getDate() && props.month === now.getMonth() && props.year === now.getFullYear()}
+              setDay={setDay}
             ></Day>
           ))}
         </div>
@@ -68,7 +77,8 @@ export default function DaysList(props) {
               key={day}
               day={day}
               active={day === props.day}
-              today={day === now.getDate() && props.month === now.getMonth()}
+              today={day === now.getDate() && props.month === now.getMonth() && props.year === now.getFullYear()}
+              setDay={setDay}
             ></Day>
           ))}
         </div>
@@ -81,7 +91,8 @@ export default function DaysList(props) {
               key={day}
               day={day}
               active={day === props.day}
-              today={day === now.getDate() && props.month === now.getMonth()}
+              today={day === now.getDate() && props.month === now.getMonth() && props.year === now.getFullYear()}
+              setDay={setDay}
             ></Day>
           ))}
         </div>
@@ -94,7 +105,8 @@ export default function DaysList(props) {
               key={day}
               day={day}
               active={day === props.day}
-              today={day === now.getDate() && props.month === now.getMonth()}
+              today={day === now.getDate() && props.month === now.getMonth() && props.year === now.getFullYear()}
+              setDay={setDay}
             ></Day>
           ))}
         </div>
@@ -107,7 +119,8 @@ export default function DaysList(props) {
               key={day}
               day={day}
               active={day === props.day}
-              today={day === now.getDate() && props.month === now.getMonth()}
+              today={day === now.getDate() && props.month === now.getMonth() && props.year === now.getFullYear()}
+              setDay={setDay}
             ></Day>
           ))}
         </div>
@@ -120,7 +133,8 @@ export default function DaysList(props) {
               key={day}
               day={day}
               active={day === props.day}
-              today={day === now.getDate() && props.month === now.getMonth()}
+              today={day === now.getDate() && props.month === now.getMonth() && props.year === now.getFullYear()}
+              setDay={setDay}
             ></Day>
           ))}
         </div>

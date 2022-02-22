@@ -45,6 +45,8 @@ export default function Calendar(props) {
         year={props.year}
         days={props.days}
         day={props.day}
+        setState={props.setState}
+        state={props.state}
       />
     </div>
   );
