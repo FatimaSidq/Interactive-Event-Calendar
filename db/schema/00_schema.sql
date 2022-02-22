@@ -29,7 +29,7 @@ CREATE TABLE admins (
   phone VARCHAR(15) NOT NULL,
   email VARCHAR(100) NOT NULL,
   password VARCHAR(100) NOT NULL,
-  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   admin_since TIMESTAMP NOT NULL DEFAULT Now()
 );
 
@@ -66,14 +66,14 @@ CREATE TABLE events (
   location varchar(100)  NULL, 
   url varchar(150)  NULL, 
   created_on TIMESTAMP NOT NULL DEFAULT Now(),
-  created_by INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  created_by INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   start_date DATE NOT NULL REFERENCES calendar(day_id) ON DELETE CASCADE,
   start_time TIME NOT NULL,
   end_date DATE NOT NULL,
   end_time TIME NOT NULL,
   is_recurring BOOLEAN DEFAULT false,
   send_reminder_on TIMESTAMP NULL  
-  -- send reminder both to event owner and invitees
+  -- send reminder to both event owner/creator and invitees
 );
 
 
@@ -85,7 +85,7 @@ CREATE TABLE todos (
   notes TEXT,
   created_on TIMESTAMP NOT NULL DEFAULT Now(),
   is_complete BOOLEAN DEFAULT false,
-  event_id INTEGER REFERENCES events(id) ON DELETE CASCADE
+  event_id INTEGER NOT NULL REFERENCES events(id) ON DELETE CASCADE
 );
 
 CREATE TABLE invitees (
@@ -95,8 +95,11 @@ CREATE TABLE invitees (
   address VARCHAR(255) NULL,
   phone VARCHAR(15) NULL,
   email VARCHAR(100) UNIQUE NOT NULL,
+  invited_on TIMESTAMP NOT NULL DEFAULT Now(),
+  notified_on TIMESTAMP NULL,
   has_attended BOOLEAN DEFAULT false,
-  event_id INTEGER REFERENCES events(id) ON DELETE CASCADE
+  send_thankYou_on TIMESTAMP NULL,
+  event_id INTEGER NOT NULL REFERENCES events(id) ON DELETE CASCADE
 );
 
 CREATE TABLE banners (
@@ -109,7 +112,7 @@ CREATE TABLE banners (
 
 CREATE TABLE nuggets_of_wisdom (
   id SERIAL PRIMARY KEY NOT NULL,
-  nugget_of_wisdom VARCHAR(255),
+  nugget_of_wisdom VARCHAR(500),
   quote_by VARCHAR(50) DEFAULT NULL,
   -- category VARCHAR(25) NOT NULL,
   topic VARCHAR(50) NOT NULL,
