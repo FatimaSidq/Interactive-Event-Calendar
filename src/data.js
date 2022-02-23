@@ -4,7 +4,7 @@ module.exports = {
   day: now.getDate(),
   month: now.getMonth(),
   year: now.getFullYear(),
-  temperature: 19,
+  temperature: "-4°",
   town: "Toronto",
   todo: {
     "1-22-2022": [
@@ -12,30 +12,24 @@ module.exports = {
         id: 1,
         complete: true,
         time: "07:00",
-        item: "Get d of bed",
+        item: "Get out of bed",
       },
       {
         id: 2,
         complete: true,
-        time: "07:00",
-        item: "Get asd of bed",
+        time: "07:30",
+        item: "Eat breakfast",
       },
       {
         id: 3,
         complete: false,
-        time: "07:00",
-        item: "Get out of a",
-      },
-      {
-        id: 4,
-        complete: false,
-        time: "07:00",
-        item: "Get x of bed",
+        time: "08:00",
+        item: "Go to the gym",
       },
     ],
   },
-  nugget: "Be Happy",
+  nugget: "Your time is limited, so don't waste it living someone else's life",
   backgroundUrl:
     "https://raw.githubusercontent.com/FatimaSidq/Interactive-Event-Calendar/database/public/images/sunrise.jpeg",
-  author: "Stella Maris",
+  author: "Steve Jobs",
 };
