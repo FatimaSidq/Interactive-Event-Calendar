@@ -15,9 +15,12 @@ body {
 
 .App {
     background-color: white;
+    box-shadow: rgba(253, 155, 61, 0.2) 0px 8px 24px;
+}
+
+.calendar-div {
     width: 650px;
     height: 450px;
-    box-shadow: rgba(253, 155, 61, 0.2) 0px 8px 24px;
     display: flex;
     user-select: none;
 }

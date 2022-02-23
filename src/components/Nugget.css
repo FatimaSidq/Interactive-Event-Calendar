@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+.nugget {
+    height: 120px;
+    background-size: cover;
+    background-position: 50%;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.nugget-title {
+    text-decoration: underline;
+    font-family: 'Great Vibes', cursive;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: fit-content;
+}
+
+.nugget-nugget {
+    background-color: rgba(255, 255, 255, 0.5);
+    width: fit-content;
+}
+
+.nugget-author {
+    font-size: 10px;
+    font-style: italic;
+}

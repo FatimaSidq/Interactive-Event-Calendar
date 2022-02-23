@@ -2,7 +2,19 @@ import "./Todo.css";
 import TodoItem from "./TodoItem";
 
 export default function Todo(props) {
-  
+  const onClick = (item) => {
+    // props.setState({
+    //   ...props.state,
+    //   todo: {
+    //     ...props.state.todo,
+    //     `${props.state.month}-${props.state.day}-${props.state.year}`: [
+    //       ...props.state.todo[`${props.state.month}-${props.state.day}-${props.state.year}`],
+          
+    //     ]
+    //   },
+    // });
+  };
+
   return (
     <div className="todo">
       <div className="info">
@@ -10,7 +22,19 @@ export default function Todo(props) {
         <p>{props.town}</p>
       </div>
       <div className="todo-list">
-        {/* {props.todo.map(item => <TodoItem complete={item.complete} time={item.time} item={item.item} key={props.todo.indexOf(item)}/>)} */}
+        {props.todo
+          ? props.todo.map((item) => (
+              <TodoItem
+                complete={item.complete}
+                time={item.time}
+                item={item.item}
+                key={props.todo.indexOf(item)}
+                onClick={() => {
+                  onClick(item);
+                }}
+              />
+            ))
+          : ""}
       </div>
     </div>
   );
