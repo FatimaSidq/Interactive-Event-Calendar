@@ -5,7 +5,7 @@ import "./TodoItem.css";
 
 export default function TodoItem(props) {
   return (
-    <div className={classNames("todo-item", { complete: props.complete })}>
+    <div className={classNames("todo-item", { complete: props.complete })} onClick={() => {props.onClick(props.id)}}>
       <div className="check">
         {props.complete && <FontAwesomeIcon icon={faCheck} />}
       </div>

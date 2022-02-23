@@ -1,18 +1,20 @@
 import "./Todo.css";
 import TodoItem from "./TodoItem";
+import findTodoItemById from "../helpers/findTodoItemById";
 
 export default function Todo(props) {
-  const onClick = (item) => {
-    // props.setState({
-    //   ...props.state,
-    //   todo: {
-    //     ...props.state.todo,
-    //     `${props.state.month}-${props.state.day}-${props.state.year}`: [
-    //       ...props.state.todo[`${props.state.month}-${props.state.day}-${props.state.year}`],
-          
-    //     ]
-    //   },
-    // });
+  const onClick = (id) => {
+    const day = `${props.state.month}-${props.state.day}-${props.state.year}`;
+    const item = findTodoItemById(props.state, day, id);
+
+    const modifiedTodo = { ...props.state.todo };
+    modifiedTodo[day] = [...props.state.todo[day]];
+    modifiedTodo[day][item].complete = !modifiedTodo[day][item].complete
+
+    props.setState({
+      ...props.state,
+      todo: modifiedTodo,
+    });
   };
 
   return (
@@ -28,10 +30,9 @@ export default function Todo(props) {
                 complete={item.complete}
                 time={item.time}
                 item={item.item}
-                key={props.todo.indexOf(item)}
-                onClick={() => {
-                  onClick(item);
-                }}
+                key={item.id}
+                id={item.id}
+                onClick={onClick}
               />
             ))
           : ""}
