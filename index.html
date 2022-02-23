@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calender</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- contanier of aplitcation -->
+    <div id="container">
+        <div id ="header">
+            <div id = "MonthDisplay"></div>
+            <div>
+                <button id="revevseButton">back</button>
+                <button id="forwardButton">forward</button>
+            </div>
+        </div>
+
+        <!-- please note we will define monday and etc -->
+        <div id="weekdays">
+            <div id="orange">Sunday</div>
+            <div>Monday</div>
+            <div>Tuesday</div>
+            <div>Wednesday</div>
+            <div>Thursday</div>
+            <div>Friday</div>
+            <div  id="orange1">Saturday</div>
+        </div>
+        <div id ="Calender1"></div>
+    </div>
+ <!-- over her we are going to create html tag to create new events -->
+    <div id="newEventCreate">
+        <h2>New Event</h2>
+
+      <input id="eventTitleInput" placeholder="Event Title" />
+
+      <button id="saveButton">Save</button>
+      <button id="cancelButton">Cancel</button>
+    </div>
+    <div id="deleteEvent">
+        <h2>Delete Event</h2>
+
+        <p id="eventText"></p>
+    <button id="deleteButton">Delete</button>
+      <button id="closeButton">Close</button>
+    </div>
+
+    <div id="modalBackDrop"></div>
+
+
+    <script src="./script.js"></script>
+</body>
+</html>
