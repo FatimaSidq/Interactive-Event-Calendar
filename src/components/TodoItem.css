@@ -23,3 +23,17 @@
 .complete {
     opacity: 0.5;
 }
+
+.remove {
+    background-color: unset;
+    color: white;
+    margin: 2px;
+    border: none;
+    cursor: pointer;
+}
+
+.todo-item-order {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}

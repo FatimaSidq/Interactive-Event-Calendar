@@ -21,6 +21,7 @@
 .nugget-nugget {
     background-color: rgba(255, 255, 255, 0.5);
     width: fit-content;
+    font-size: 7px;
 }
 
 .nugget-author {

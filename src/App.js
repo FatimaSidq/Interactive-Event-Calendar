@@ -1,12 +1,28 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Calendar from "./components/Calendar";
 import Todo from "./components/Todo";
 import data from "./data.js";
 import Nugget from "./components/Nugget";
 
 function App() {
-  const [state, setState] = useState(data);
+  const [state, setState] = useState({
+    day: null,
+    month: null,
+    year: null,
+    temperature: null,
+    town: null,
+    todo: {},
+    nugget: null,
+    backgroundUrl: null,
+    author: null,
+  });
+
+  useEffect(() => {
+    data().then((data) => {
+      setState(data);
+    });
+  }, []);
 
   return (
     <div className="App">
@@ -14,6 +30,9 @@ function App() {
         nugget={state.nugget}
         backgroundUrl={state.backgroundUrl}
         author={state.author}
+        month={state.month}
+        year={state.year}
+        day={state.day}
       />
       <div className="calendar-div">
         <Calendar

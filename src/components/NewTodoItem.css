@@ -1,0 +1,16 @@
+.new-todo-input {
+    background-color: unset;
+    border: unset;
+    color: white;
+    border-bottom: 2px solid white;
+    outline: none;
+    width: 40%;
+    margin: 2px;
+}
+
+.add {
+    background-color: unset;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
